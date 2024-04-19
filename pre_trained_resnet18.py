@@ -52,6 +52,9 @@ model.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
 num_ftrs = model.fc.in_features
 model.fc = nn.Linear(num_ftrs, 2)
 
+x = torch.randn(1,1,50,50)
+torch.onnx.export(model, x, 'PreTrainedResNet18.onnx', input_names=["features"], output_names=["Coordinates"])
+
 # Set the model to the specified device (CPU or GPU)
 model = model.to(config.DEVICE)
 
@@ -138,6 +141,6 @@ def eval():
         print(final_loss / len(test_loader))
     pass
 if __name__ == "__main__":
-    main()
-    eval()
+    #main()
+    #eval()
     pass

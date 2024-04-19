@@ -69,6 +69,7 @@ def test_model():
     """
     x = torch.randn(1,1,50,50)
     model = Model()
+    torch.onnx.export(model, x, 'baseline.onnx', input_names=["features"], output_names=["Coordinates"])
     return model(x)
 
 if __name__ == "__main__":

@@ -102,7 +102,7 @@ class Data(Dataset):
     It inherits from the `Dataset` class and provides methods for accessing images
     and their corresponding labels based on their paths.
     """
-    def __init__(self, image_paths, label_path,split='train'):
+    def __init__(self, image_paths, label_paths,split='train'):
         """
         Initializes the Data object.
 
@@ -112,7 +112,7 @@ class Data(Dataset):
             split (str, optional): Split type ('train' or 'test'). Defaults to 'train'.
         """
         self.image_paths = image_paths
-        self.label_path = label_path
+        self.label_path = label_paths
         self.split = split
         pass
     
