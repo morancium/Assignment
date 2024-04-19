@@ -3,7 +3,8 @@ dataset
 __pycache__
 Test_dataset
 Pretrained_resnet18.pth
-
+dataset.zip
+Test_dataset.zip
 
 
 

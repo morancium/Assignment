@@ -114,3 +114,9 @@ One thing I want to point out is that the dataset combinations are very limited 
 ## Future Work and Other Ideas
 I thought we might incorporate a YOLO model for this task. Labels might be the bounding boxes with the center as the label coordinate of the pixel. But I think till will be an overkill for this easy task.  
 The other approach I thought of was using a core machine learning model like an SVM for this regression task.
+
+## Important Links:
+[Dataset Link](https://drive.google.com/file/d/1L5O--bGABt_Hy_PIzKbfbE02f0tdhKlv/view?usp=sharing)  
+[Test Dataset Link](https://drive.google.com/file/d/1HzlQ9N_lGAqnhQYXXctLBTJ3LhrDhogy/view?usp=sharing)  
+[Baseline Model Weights](https://drive.google.com/file/d/16KJ1F3eHFj2YUfZs9eWD5cq4Sb9U_qiU/view?usp=drive_link)  
+[Pretrained ResNet18 Weights](https://drive.google.com/file/d/1gw_PLAZ-iT9SK_66PQxC_JPGuWO1Ndxe/view?usp=drive_link)
