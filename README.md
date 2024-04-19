@@ -80,3 +80,37 @@ Used the following Model Hyperparameters:
 
 - **test.py**  
 This script contains the code to test and load the trained model on the test dataset which has been created separately from the training dataset, and also visualizing the outputs.
+
+
+## Results
+The graphs of the Loss function of the baseline model with different combinations of Epochs and Learning rate  
+
+Baseline model with the Learning rate of 0.0001 and with 32 epochs  
+> ![Epoch32_lr_0.0001](Epoch32_lr_0.0001-1.png)  
+
+Baseline model with the Learning rate of 0.001 and with 32 epochs  
+> ![Epoch32_lr_0.001](Epoch32_lr_0.001.png)  
+
+Baseline model with the Learning rate of 0.001 and with 64 epochs 
+> ![Epoch64_lr_0.001](Epoch64_lr_0.001.png)  
+
+Pre Trained ResNet18 model with the Learning rate of 0.001 and with 16 epochs [**BEST**]
+> ![resnet_18](resnet_18.png)  
+
+Here are the Visualization of the predictions of the best baseline model and pre-trained resnet18 model  
+The title of each plot it the label coordinate which is displayed in white pixel, and the output is displayed in gray pixel.  
+
+Baseline model: 
+![alt text](Visual_Epoch64_lr_0.001.png)
+
+Pre-trained ResNet18 model:
+![alt text](Visual_Resnet18.png)
+
+## Conclusions
+On increasing the learning rate in the baseline model helps to converge the model faster and increasing the number of epochs reduces the loss.  
+Definitely, the Pretrained model outperformed the baseline model by a huge margin    
+One thing I want to point out is that the dataset combinations are very limited (well, 2500 to be precise) so here there is a chance that the model might overfit the dataset.
+
+## Future Work and Other Ideas
+I thought we might incorporate a YOLO model for this task. Labels might be the bounding boxes with the center as the label coordinate of the pixel. But I think till will be an overkill for this easy task.  
+The other approach I thought of was using a core machine learning model like an SVM for this regression task.
