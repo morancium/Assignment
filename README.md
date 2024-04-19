@@ -21,6 +21,15 @@ source venv/bin/activate  # Activate virtual environment (Linux/macOS)
 pip install -r requirements.txt  # Install dependencies
 ```
 
+## Approach and First Thoughts  
+Initially, I considered creating a dataset, as training any model for predictions is impossible without data. Generating the dataset was straightforward using the NumPy and PIL libraries, and I stored the images and labels in JSON format for ease of access. After acquiring the dataset, the next step was to select a machine-learning model. Choosing an appropriate model for a given problem statement is crucial, so I opted for a CNN-based approach, where an input image of size 1x50x50 would yield two output nodes representing the X and Y coordinates of the pixel. Thus, I built a baseline model.
+
+Once the model architecture was chosen, it was essential to select a loss function. In this case, I used the Mean Squared Error Loss Function because minimizing the distance between the predicted coordinate and the labeled coordinate of the white pixel was the goal. After choosing the loss function, I went with the standard Adam Optimizer. To set the learning rate, I experimented with various values. 
+
+Later, I considered using a pre-trained ResNet18 architecture and fine-tuning it for our task, which resulted in very good accuracy compared to the baseline model.
+
+
+
 ## Usage
 
 - **config.py**\
