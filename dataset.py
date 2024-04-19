@@ -2,6 +2,8 @@
 # We will save the image in the folder named 'dataset' and the label in the file named 'label.csv'
 #  we will make dataset of 4000 images and labels
 # The dataset will be split into 80% training and 20% testing
+
+#importing the required libraries
 import numpy as np
 import config
 import random
@@ -12,7 +14,19 @@ import time
 import json
 
 class Dataset:
+    """
+    This class represents a dataset for machine learning tasks.
+    It can generate, save, and load datasets consisting of images and corresponding labels.
+    """
+    
     def __init__(self, path, split, size):
+        """
+        Initializes the Dataset object.
+        Args:
+            path (str): Path to the directory where the dataset will be stored or loaded.
+            split (float): Ratio of the dataset to be used for training (0.0 to 1.0).
+            size (int): Total number of images in the dataset.
+        """
         self.dataset = []
         self.labels = {}
         self.dataset_size = size
@@ -26,6 +40,11 @@ class Dataset:
         self.label_path = path+'/label.json'
 
     def generate_dataset(self):
+        """Generates a dataset of random images with corresponding labels.
+
+        This function creates the dataset by generating images with a single white pixel
+        at a random location and storing the coordinates as labels.
+        """
         for i in range(self.dataset_size):
             image = np.zeros((self.image_size, self.image_size, self.image_channels), dtype=np.uint8)
             label = np.zeros(self.label_size, dtype=np.uint8)
@@ -38,6 +57,11 @@ class Dataset:
         # print(self.labels)
 
     def save_dataset(self):
+        """Saves the generated dataset to images and labels in JSON format.
+
+        This function creates the dataset directory if it doesn't exist and then saves
+        each image as a PNG file and the labels as a JSON file.
+        """
         if not os.path.exists(self.dataset_path):
             os.makedirs(self.dataset_path)
         for i in range(self.dataset_size):
@@ -48,6 +72,14 @@ class Dataset:
             json.dump(self.labels, f)
 
     def get_train_data(self):
+        """Returns the training data (images and labels).
+
+        This function returns the entire dataset (images and labels) which can be used for training.
+
+        Returns:
+            self.dataset: Images
+            self.labels: Labels
+        """
         return self.dataset, self.labels
 
 if __name__ == '__main__':
@@ -58,6 +90,7 @@ if __name__ == '__main__':
     # dataset.load_dataset()
     dataset_load, labels_load = dataset.get_train_data()
     end = time.time()
+    #printing Usfull information about the dataset
     print('Dataset size:', len(dataset_load))
     print('Labels size:', len(dataset_load))
     print('Train dataset size:', len(dataset_load))
